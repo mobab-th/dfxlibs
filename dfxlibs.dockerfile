@@ -19,27 +19,13 @@ RUN apt-get -y update && \
     apt-get -y upgrade
 RUN apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
-
-RUN pip3 install libewf-python && \
-    pip3 install python-dateutil && \
-    pip3 install libqcow-python && \
-    pip3 install libvmdk-python && \
-    pip3 install libvhdi-python && \
-    pip3 install pytsk3 && \
-    pip3 install python-registry && \
-    pip3 install python-evtx && \
-    pip3 install lxml && \
-    pip3 install XlsxWriter && \
-    pip3 install py-tlsh && \
-    pip3 install python-magic && \
-    pip3 install libvshadow-python && \
-    pip3 install libscca-python && \
-    pip3 install libbde-python && \
-    pip3 install libevtx-python && \
-    pip3 install pycryptodome && \
-    pip3 install signify && \
-    pip3 install xmltodict && \
-    pip3 install lnkparse3
+RUN pip3 install --no-cache-dir libewf-python python-dateutil && \
+    pip3 install --no-cache-dir libqcow-python libvmdk-python libvhdi-python && \
+    pip3 install --no-cache-dir pytsk3 python-registry python-evtx && \
+    pip3 install --no-cache-dir lxml XlsxWriter py-tlsh && \
+    pip3 install --no-cache-dir python-magic libvshadow-python libscca-python && \
+    pip3 install --no-cache-dir libbde-python libevtx-python pycryptodome && \
+    pip3 install --no-cache-dir signify xmltodict lnkparse3
 
 WORKDIR /tmp
 RUN git clone https://github.com/Markus-D-M/dfxlibs.git
